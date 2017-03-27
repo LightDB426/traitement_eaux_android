@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.lebtssio.traitement_eaux2.metier.station;
+import com.lebtssio.traitement_eaux2.metier.Station;
 import com.lebtssio.traitement_eaux2.passerelle.StationDAO;
 
 /**
@@ -19,7 +19,7 @@ public class GestionReleve extends AppCompatActivity {
         setContentView(R.layout.activity_liste_station);
         TextView txtNomStation = (TextView) findViewById(R.id.textView);
         int id = this.getIntent().getExtras().getInt("id");
-        station s = StationDAO.getStation(id, this);
+        Station s = StationDAO.getStation(id, this);
         txtNomStation.setText(String.valueOf(s.getNomS()));
     }
 
