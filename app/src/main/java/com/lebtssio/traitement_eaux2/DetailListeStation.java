@@ -17,7 +17,7 @@ public class DetailListeStation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_station);
-        TextView txtNomStation = (TextView) findViewById(R.id.textView);
+        TextView txtNomStation = (TextView) findViewById(R.id.TXT_nom_station);
         int id = this.getIntent().getExtras().getInt("id");
         Station s = StationDAO.getStation(id, this);
         txtNomStation.setText(String.valueOf(s.getNomS()));

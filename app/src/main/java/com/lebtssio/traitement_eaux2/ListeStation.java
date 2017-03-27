@@ -26,7 +26,7 @@ public class  ListeStation extends AppCompatActivity {
 
         String[] listeChamps = new String[]{StationDAO.STATION_nomS};
 
-        int[] vueID = new int[]{R.id.nom_station};
+        int[] vueID = new int[]{R.id.TXT_nom_station};
 
         SimpleCursorAdapter monCursorAdapter = new SimpleCursorAdapter(
                 getBaseContext(),

@@ -6,7 +6,7 @@
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
-        android:id="@+id/nom_station"
+        android:id="@+id/TXT_nom_station"
         android:layout_height="30dp"
         android:layout_marginLeft="50dp" />
 </LinearLayout>
