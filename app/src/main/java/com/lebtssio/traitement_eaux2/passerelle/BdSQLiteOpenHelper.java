@@ -35,7 +35,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
             + "FOREIGN KEY (idS) REFERENCES annnee(idS)"
             + ")";
 
-    private String relever = "CREATE TABLE relever ("
+    private String releve = "CREATE TABLE relever ("
             + "numA INTEGER NOT NULL,"
             + "idS INTEGER NOT NULL,"
             + "numM INTEGER NOT NULL,"
@@ -71,13 +71,23 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
         db.execSQL(annee);
         db.execSQL(mois);
         db.execSQL(critere);
-        db.execSQL(relever);
+        db.execSQL(releve);
 
         //insertion de lignes
         db.execSQL("insert into station(idS, nomS) values(1, 'Canal de lalinde')");
         db.execSQL("insert into station(idS, nomS) values(2, 'Esat de Puch')");
         db.execSQL("insert into station(idS, nomS) values(3, 'Landerrouat')");
         db.execSQL("insert into station(idS, nomS) values(4, 'Station des vignes du Sud-Ouest')");
+
+        db.execSQL("insert into annee(numA, idS, introA, conclusionA) values (1, 1, 2016, 'Ceci est une conclusion')");
+
+        db.execSQL("insert into mois(numA, idS, numM, remarqueM) values (1, 1, 1, 'Ceci est une remarque')");
+
+        db.execSQL("insert into critere(idC, libelleC, uniteC) values (1, 'Eau', 'unité m3')");
+
+        db.execSQL("insert into releve(numA, idS, numM, numJ, idC, qteEntree, qteSortie) values (1, 1, 1, 1, 1, 4233, 9353)");
+
+
     }
 
     @Override
