@@ -11,7 +11,7 @@ import com.lebtssio.traitement_eaux2.passerelle.StationDAO;
  * Created by LeonBr on 20/03/2017.
  */
 
-public class GestionReleve extends AppCompatActivity {
+public class DetailListeStation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

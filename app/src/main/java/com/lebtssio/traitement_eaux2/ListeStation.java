@@ -41,7 +41,7 @@ public class  ListeStation extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ListeStation.this, GestionReleve.class);
+                Intent intent = new Intent(ListeStation.this, DetailListeStation.class);
                 intent.putExtra("id", id);
                 ListeStation.this.startActivity(intent);
 
