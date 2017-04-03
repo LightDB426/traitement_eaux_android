@@ -5,9 +5,8 @@
 
     <TextView
         android:text="TextView"
-        android:layout_width="match_parent"
+        android:layout_width="383dp"
         android:id="@+id/nom_station"
         android:layout_height="30dp"
-        android:layout_marginLeft="50dp"
         android:textAlignment="center" />
 </LinearLayout>
