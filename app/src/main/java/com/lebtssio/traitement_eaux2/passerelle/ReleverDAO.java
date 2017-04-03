@@ -8,7 +8,7 @@ import android.database.Cursor;
  */
 
 public class ReleverDAO {
-    //public static final String relever_numA = "numA";
+    //public static final String relever_numA = "numAjj";
     //public static final String relever_idS = "idS";
     //public static final String relever_numM = "numM";
     //public static final String relever_numJ = "numJ";
