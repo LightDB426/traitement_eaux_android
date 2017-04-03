@@ -36,6 +36,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
             + ")";
 
     private String relever = "CREATE TABLE relever ("
+            + "idR INTEGER NOT NULL,"
             + "numA INTEGER NOT NULL,"
             + "idS INTEGER NOT NULL,"
             + "numM INTEGER NOT NULL,"
@@ -43,7 +44,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
             + "idC INTEGER NOT NULL,"
             + "qteEntreer INTEGER NULL,"
             + "qteSortir INTEGER NULL,"
-            + "PRIMARY KEY (numA, idS, numM, numJ, idC),"
+            + "PRIMARY KEY (idR, numA, idS, numM, numJ, idC),"
             + "FOREIGN KEY (numA) REFERENCES mois(numA),"
             + "FOREIGN KEY (idS) REFERENCES mois(idS),"
             + "FOREIGN KEY (numM) REFERENCES mois(numM),"
@@ -51,7 +52,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
             + ")";
 
     private String critere = "CREATE TABLE critere (" +
-            "idC NOT NULL,"
+            "idC INTEGER NOT NULL,"
             + "libelleC TEXT NULL,"
             + "uniteC TEXT NULL,"
             + "PRIMARY KEY (idC)"
@@ -88,9 +89,9 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
         db.execSQL("insert into critere (idC, libelleC, uniteC) values (3, 'MES', 'mg/l')");
 
         //table relever (numA, idS, numM, numJ, idC, qte, qts)
-        db.execSQL("insert into relever(numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (1, 3, 1, 11, 1, 2408, 51509)");
-        db.execSQL("insert into relever(numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (1, 3, 1, 11, 2, 7340, 73)");
-        db.execSQL("insert into relever(numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values(1, 3, 1, 11, 3, 581, 55)");
+        db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (1, 1, 3, 1, 11, 1, 2408, 51509)");
+        db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (2, 1, 3, 1, 11, 2, 7340, 73)");
+        db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values(3, 1, 3, 1, 11, 3, 581, 55)");
     }
 
     @Override

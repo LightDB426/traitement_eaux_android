@@ -8,10 +8,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
+import com.lebtssio.traitement_eaux2.metier.Station;
+import com.lebtssio.traitement_eaux2.passerelle.ReleverDAO;
 import com.lebtssio.traitement_eaux2.passerelle.StationDAO;
 
 public class ListeStation extends AppCompatActivity {
+    Cursor listeRelever;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,5 +54,14 @@ public class ListeStation extends AppCompatActivity {
 
             }
         });
+
+        listeRelever = ReleverDAO.getReleverStation(this, 3);
+        if (listeRelever.getCount() != 0){
+            Toast.makeText(ListeStation.this, "ok" , Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(ListeStation.this, "Rien", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

@@ -4,8 +4,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/last_info_station"
-        android:text="bla" />
+        android:id="@+id/relever"
+        android:text="bla"
+        android:layout_marginLeft="50dp"
+        android:layout_width="match_parent"/>
+
 </LinearLayout>
