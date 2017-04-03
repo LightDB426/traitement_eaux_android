@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Annee {
 
     private long numA;
-    private ArrayList<Station> listStation = new ArrayList<>();
+    private ArrayList<station> listStation = new ArrayList<>();
     private int introA;
     private String conclusionA;
 

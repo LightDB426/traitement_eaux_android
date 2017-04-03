@@ -4,16 +4,16 @@ package com.lebtssio.traitement_eaux2.metier;
  * Created by LeonBr on 15/03/2017.
  */
 
-public class Station {
-    private long idS;
+public class station {
+    private int idS;
     private String nomS;
 
-    public Station(long idS, String nomS) {
+    public station(int idS, String nomS) {
         this.idS = idS;
         this.nomS = nomS;
     }
 
-    public long getIdS() {
+    public int getIdS() {
         return idS;
     }
 

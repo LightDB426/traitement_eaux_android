@@ -19,7 +19,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
     private String annee = "CREATE TABLE annee ("
             + "numA INTEGER NOT NULL,"
             + "idS INTEGER NOT NULL,"
-            + "introA INTEGER,"
+            + "introA TEXT NULL,"
             + "conclusionA TEXT NULL,"
             + "PRIMARY KEY (numA, idS),"
             + "FOREIGN KEY (idS) REFERENCES station(idS)"
@@ -35,7 +35,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
             + "FOREIGN KEY (idS) REFERENCES annnee(idS)"
             + ")";
 
-    private String releve = "CREATE TABLE relever ("
+    private String relever = "CREATE TABLE relever ("
             + "numA INTEGER NOT NULL,"
             + "idS INTEGER NOT NULL,"
             + "numM INTEGER NOT NULL,"
@@ -71,7 +71,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
         db.execSQL(annee);
         db.execSQL(mois);
         db.execSQL(critere);
-        db.execSQL(releve);
+        db.execSQL(relever);
 
         //insertion de lignes
         db.execSQL("insert into station(idS, nomS) values(1, 'Canal de lalinde')");
@@ -79,15 +79,18 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
         db.execSQL("insert into station(idS, nomS) values(3, 'Landerrouat')");
         db.execSQL("insert into station(idS, nomS) values(4, 'Station des vignes du Sud-Ouest')");
 
-        db.execSQL("insert into annee(numA, idS, introA, conclusionA) values (1, 1, 2016, 'Ceci est une conclusion')");
+        db.execSQL("insert into annee(numA, idS, introA, conclusionA) values(2017, 3, 'Nouvelle an', 'Aucune idee')");
 
-        db.execSQL("insert into mois(numA, idS, numM, remarqueM) values (1, 1, 1, 'Ceci est une remarque')");
+        db.execSQL("insert into mois (numA, idS, numM, remarqueM) values(1, 3, 1, 'Aucune')");
 
-        db.execSQL("insert into critere(idC, libelleC, uniteC) values (1, 'Eau', 'unité m3')");
+        db.execSQL("insert into critere (idC, libelleC, uniteC) values (1, 'Eau', 'm3')");
+        db.execSQL("insert into critere (idC, libelleC, uniteC) values (2, 'DCO', 'mg/l')");
+        db.execSQL("insert into critere (idC, libelleC, uniteC) values (3, 'MES', 'mg/l')");
 
-        db.execSQL("insert into releve(numA, idS, numM, numJ, idC, qteEntree, qteSortie) values (1, 1, 1, 1, 1, 4233, 9353)");
-
-
+        //table relever (numA, idS, numM, numJ, idC, qte, qts)
+        db.execSQL("insert into relever(numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (1, 3, 1, 11, 1, 2408, 51509)");
+        db.execSQL("insert into relever(numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (1, 3, 1, 11, 2, 7340, 73)");
+        db.execSQL("insert into relever(numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values(1, 3, 1, 11, 3, 581, 55)");
     }
 
     @Override

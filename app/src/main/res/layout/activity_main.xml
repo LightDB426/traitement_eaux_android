@@ -51,15 +51,15 @@
         android:layout_above="@+id/btImport"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="18dp"
-        android:id="@+id/TXT_identification"
+        android:id="@+id/textView"
         android:layout_alignEnd="@+id/btIdentification" />
 
     <TextView
         android:text="Relevé station"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/TXT_identification"
+        android:layout_alignBottom="@+id/textView"
         android:layout_alignParentEnd="true"
-        android:id="@+id/TXT_releve_station"
+        android:id="@+id/textView2"
         android:layout_width="160dp" />
 
     <TextView
@@ -68,13 +68,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btImport"
         android:layout_alignParentStart="true"
-        android:id="@+id/TXT_import_donnees" />
+        android:id="@+id/textView3" />
 
     <TextView
         android:text="Export données"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/TXT_import_donnees"
+        android:layout_alignBottom="@+id/textView3"
         android:layout_alignParentEnd="true"
-        android:id="@+id/TXT_export_donnée" />
+        android:id="@+id/textView4" />
 </RelativeLayout>

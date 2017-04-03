@@ -11,7 +11,7 @@ import android.widget.SimpleCursorAdapter;
 
 import com.lebtssio.traitement_eaux2.passerelle.StationDAO;
 
-public class  ListeStation extends AppCompatActivity {
+public class ListeStation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class  ListeStation extends AppCompatActivity {
 
         String[] listeChamps = new String[]{StationDAO.STATION_nomS};
 
-        int[] vueID = new int[]{R.id.TXT_nom_station};
+        int[] vueID = new int[]{R.id.nom_station};
 
         SimpleCursorAdapter monCursorAdapter = new SimpleCursorAdapter(
                 getBaseContext(),
@@ -38,16 +38,17 @@ public class  ListeStation extends AppCompatActivity {
         );
         listView.setAdapter(monCursorAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ListeStation.this, DetailListeStation.class);
-                intent.putExtra("id", id);
-                ListeStation.this.startActivity(intent);
+                //on instancie un objet de type Intent qui précisera l'activité à démarrer
+                Intent intentSuite = new Intent(ListeStation.this, GestionReleve.class);
+                //on passe l'id du client qui a été sélectionné
+                intentSuite.putExtra("id", id);
+                //on démarre l'activité qui affichera le détail du client sélectionné
+                ListeStation.this.startActivity(intentSuite);
 
             }
-
         });
-
     }
 }
