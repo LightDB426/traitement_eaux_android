@@ -4,11 +4,11 @@ package com.lebtssio.traitement_eaux2.metier;
  * Created by LeonBr on 15/03/2017.
  */
 
-public class station {
+public class Station {
     private int idS;
     private String nomS;
 
-    public station(int idS, String nomS) {
+    public Station(int idS, String nomS) {
         this.idS = idS;
         this.nomS = nomS;
     }

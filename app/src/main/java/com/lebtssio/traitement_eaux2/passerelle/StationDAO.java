@@ -14,7 +14,7 @@ public class StationDAO {
     public static Cursor getCursorStation(Context ct){
         BdSQLiteOpenHelper accesDB = ConnexionDAO.getAccesDB(ct);
         Cursor curseur;
-        String req = "select idS as _id, nomS from station";
+        String req = "select idS as _id, nomS from Station";
         curseur = accesDB.getReadableDatabase().rawQuery(req, null);
 
         return curseur;

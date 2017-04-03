@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
-    private String station = "CREATE TABLE station ("
+    private String station = "CREATE TABLE Station ("
             + "idS INTEGER NOT NULL,"
             + "nomS TEXT NULL,"
             + "PRIMARY KEY(idS)"
@@ -22,7 +22,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
             + "introA TEXT NULL,"
             + "conclusionA TEXT NULL,"
             + "PRIMARY KEY (numA, idS),"
-            + "FOREIGN KEY (idS) REFERENCES station(idS)"
+            + "FOREIGN KEY (idS) REFERENCES Station(idS)"
             + ")";
 
     private String mois = "CREATE TABLE mois ("
@@ -74,10 +74,10 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
         db.execSQL(relever);
 
         //insertion de lignes
-        db.execSQL("insert into station(idS, nomS) values(1, 'Canal de lalinde')");
-        db.execSQL("insert into station(idS, nomS) values(2, 'Esat de Puch')");
-        db.execSQL("insert into station(idS, nomS) values(3, 'Landerrouat')");
-        db.execSQL("insert into station(idS, nomS) values(4, 'Station des vignes du Sud-Ouest')");
+        db.execSQL("insert into Station(idS, nomS) values(1, 'Canal de lalinde')");
+        db.execSQL("insert into Station(idS, nomS) values(2, 'Esat de Puch')");
+        db.execSQL("insert into Station(idS, nomS) values(3, 'Landerrouat')");
+        db.execSQL("insert into Station(idS, nomS) values(4, 'Station des vignes du Sud-Ouest')");
 
         db.execSQL("insert into annee(numA, idS, introA, conclusionA) values(2017, 3, 'Nouvelle an', 'Aucune idee')");
 
