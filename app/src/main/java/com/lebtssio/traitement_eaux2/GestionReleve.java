@@ -30,8 +30,6 @@ public class GestionReleve extends AppCompatActivity {
         super.onResume();
         long choix = this.getIntent().getExtras().getLong("id");
 
-        x = (TextView)this.findViewById(R.id.relever);
-
         listeRelever = ReleverDAO.getReleverStation(this, choix);
         if (listeRelever.getCount() != 0){
             Toast.makeText(GestionReleve.this, "des resultats", Toast.LENGTH_SHORT).show();
@@ -39,11 +37,12 @@ public class GestionReleve extends AppCompatActivity {
         else {
             Toast.makeText(GestionReleve.this, "Rien", Toast.LENGTH_SHORT).show();
         }
-
+        TextView info_last_date = (TextView)findViewById(R.id.info_last_date);
+        info_last_date.setText("Liste des derniers relevés de la station " + StationDAO.getNomStation(this, choix));
         ListView listView = (ListView) findViewById(R.id.relever_list);
 
-        String[] listeChamps = new String[]{ReleverDAO.RELEVER_libelleC};
-        int[] vuiID = new int[]{R.id.relever};
+        String[] listeChamps = new String[]{ReleverDAO.RELEVER_libelleC, ReleverDAO.relever_qteEntreer, ReleverDAO.relever_qteSortir, ReleverDAO.relever_uniteC};
+        int[] vuiID = new int[]{R.id.libelle, R.id.qteE, R.id.qteS, R.id.unite};
 
         SimpleCursorAdapter monC = new SimpleCursorAdapter(
                 getBaseContext(),

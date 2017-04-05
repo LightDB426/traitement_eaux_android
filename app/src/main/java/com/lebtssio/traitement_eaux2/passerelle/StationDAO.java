@@ -19,4 +19,15 @@ public class StationDAO {
 
         return curseur;
     }
+
+    public static String getNomStation(Context ct, long id){
+        BdSQLiteOpenHelper accesdb = ConnexionDAO.getAccesDB(ct);
+        String sql = "select nomS from Station where idS = " + id;
+        Cursor res = accesdb.getReadableDatabase().rawQuery(sql, null);
+        String nomS = "";
+        if(res.moveToFirst()){
+            nomS = res.getString(0);
+        }
+        return nomS;
+    }
 }
