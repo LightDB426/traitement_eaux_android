@@ -22,12 +22,32 @@ public class ReleverDAO {
     public static Cursor getReleverStation(Context ct, long idS){
         BdSQLiteOpenHelper accesDB = ConnexionDAO.getAccesDB(ct);
         Cursor curseur;
-        String req = "select idR as _id, libelleC, qteEntreer, qteSortir, uniteC, idS " +
+        String req = "select idR as _id, libelleC, qteEntreer, qteSortir, uniteC, numA, numM, numJ " +
                      "from relever inner join critere on relever.idC = critere.idC " +
-                     "where idS = " + idS;
+                     "where idS = " + idS + " and " +
+                     "numA = (select MAX(numA) from mois) and " +
+                     "numM = (select MAX(numM) from mois where numA = (select MAX(numA) from mois)) and " +
+                     "numJ = (select MAX(numJ) from relever)";
         curseur = accesDB.getReadableDatabase().rawQuery(req, null);
 
         return curseur;
+    }
 
+    public static String getDateDernierRelever(Context ctn, long idS){
+        BdSQLiteOpenHelper accesDb = ConnexionDAO.getAccesDB(ctn);
+        Cursor curseur;
+        String nom = "";
+        String req = "select numJ, numM, numA " +
+                "from relever inner join critere on relever.idC = critere.idC " +
+                "where idS = " + idS + " and " +
+                "numA = (select MAX(numA) from mois) and " +
+                "numM = (select MAX(numM) from mois where numA = (select MAX(numA) from mois)) and " +
+                "numJ = (select MAX(numJ) from relever)";
+
+        curseur = accesDb.getReadableDatabase().rawQuery(req, null);
+        if (curseur.moveToFirst()){
+            nom = curseur.getString(0) +  "/" + curseur.getString(1) + "/" + curseur.getString(2);
+        }
+        return nom;
     }
 }

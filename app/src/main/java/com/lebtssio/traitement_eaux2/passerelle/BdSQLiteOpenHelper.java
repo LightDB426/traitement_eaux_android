@@ -31,8 +31,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
             + "numM INTEGER NOT NULL,"
             + "remarqueM TEXT NULL,"
             + "PRIMARY KEY (numA, idS, numM),"
-            + "FOREIGN KEY (numA) REFERENCES annee(numA),"
-            + "FOREIGN KEY (idS) REFERENCES annnee(idS)"
+            + "FOREIGN KEY (numA, ids) REFERENCES annee(numA, idS)"
             + ")";
 
     private String relever = "CREATE TABLE relever ("
@@ -45,9 +44,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
             + "qteEntreer INTEGER NULL,"
             + "qteSortir INTEGER NULL,"
             + "PRIMARY KEY (idR, numA, idS, numM, numJ, idC),"
-            + "FOREIGN KEY (numA) REFERENCES mois(numA),"
-            + "FOREIGN KEY (idS) REFERENCES mois(idS),"
-            + "FOREIGN KEY (numM) REFERENCES mois(numM),"
+            + "FOREIGN KEY (numA, idS, numM) REFERENCES mois(numA, idS, numM),"
             + "FOREIGN KEY (idC) REFERENCES critere(idC)"
             + ")";
 
@@ -82,16 +79,18 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
 
         db.execSQL("insert into annee(numA, idS, introA, conclusionA) values(2017, 3, 'Nouvelle an', 'Aucune idee')");
 
-        db.execSQL("insert into mois (numA, idS, numM, remarqueM) values(1, 3, 1, 'Aucune')");
+        db.execSQL("insert into mois (numA, idS, numM, remarqueM) values(2017, 3, 1, 'Aucune')");
 
         db.execSQL("insert into critere (idC, libelleC, uniteC) values (1, 'Eau', 'm3')");
         db.execSQL("insert into critere (idC, libelleC, uniteC) values (2, 'DCO', 'mg/l')");
         db.execSQL("insert into critere (idC, libelleC, uniteC) values (3, 'MES', 'mg/l')");
 
-        //table relever (numA, idS, numM, numJ, idC, qte, qts)
-        db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (1, 1, 3, 1, 11, 1, 2408, 51509)");
-        db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (2, 1, 3, 1, 11, 2, 7340, 73)");
-        db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values(3, 1, 3, 1, 11, 3, 581, 55)");
+        //table relever (idR, numA, idS, numM, numJ, idC, qte, qts)
+        db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (1, 2017, 3, 1, 11, 1, 2408, 51509)");
+        db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (2, 2017, 3, 1, 11, 2, 7340, 73)");
+        db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values(3, 2017, 3, 1, 11, 3, 581, 55)");
+        //db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values(4, 2017, 3, 1, 10, 3, 0, 0)");
+
     }
 
     @Override
