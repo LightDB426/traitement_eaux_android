@@ -42,5 +42,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/unite"
             android:textAlignment="center"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="91dp"
+            android:layout_height="67dp"
+            android:layout_weight="0.38"
+            android:id="@+id/id_visualisation_sign"></LinearLayout>
     </LinearLayout>
 </LinearLayout>

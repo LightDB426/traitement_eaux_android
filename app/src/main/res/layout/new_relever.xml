@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:id="@+id/linear_ID1">
+
+    <TextView
+        android:text="Ajout d'un nouveau relever"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_add_relever"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:text="Sasiir nom de station"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_new_id_station" />
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/new_id_station"
+        android:hint="Saisir nom station"
+        android:dropDownHeight="match_parent"
+        android:dropDownWidth="match_parent"
+        android:completionThreshold="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_type_critere"
+        android:text="Choisir le critere" />
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/type_critere"
+        android:hint="Critere mesure"
+        android:completionThreshold="1"/>
+
+    <TextView
+        android:text="Qunatité entréer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_qte" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/input_qte" />
+
+    <TextView
+        android:text="Quantité sortie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_qts" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/input_qtS" />
+
+    <TextView
+        android:text="Signature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_text_signaure"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:id="@+id/id_draw_signature"></LinearLayout>
+
+    <Button
+        android:text="Valider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btValider"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
