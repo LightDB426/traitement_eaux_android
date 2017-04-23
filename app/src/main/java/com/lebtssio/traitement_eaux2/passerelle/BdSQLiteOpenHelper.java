@@ -43,6 +43,7 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
             + "idC INTEGER NOT NULL,"
             + "qteEntreer INTEGER NULL,"
             + "qteSortir INTEGER NULL,"
+            + "signature TEXT NULL,"
             + "PRIMARY KEY (idR, numA, idS, numM, numJ, idC),"
             + "FOREIGN KEY (numA, idS, numM) REFERENCES mois(numA, idS, numM),"
             + "FOREIGN KEY (idC) REFERENCES critere(idC)"
@@ -80,8 +81,9 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
         db.execSQL("insert into annee(numA, idS, introA, conclusionA) values(2017, 3, 'Nouvelle an', 'Aucune idee')");
 
         db.execSQL("insert into mois (numA, idS, numM, remarqueM) values(2017, 3, 1, 'Aucune')");
+        db.execSQL("insert into mois (numA, idS, numM, remarqueM) values(2017, 3, 4, 'Avril')");
 
-        db.execSQL("insert into critere (idC, libelleC, uniteC) values (1, 'Eau', 'm3')");
+        db.execSQL("insert into critere (idC, libelleC, uniteC) values (1, 'EAU', 'm3')");
         db.execSQL("insert into critere (idC, libelleC, uniteC) values (2, 'DCO', 'mg/l')");
         db.execSQL("insert into critere (idC, libelleC, uniteC) values (3, 'MES', 'mg/l')");
 
@@ -89,7 +91,6 @@ public class BdSQLiteOpenHelper extends SQLiteOpenHelper{
         db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (1, 2017, 3, 1, 11, 1, 2408, 51509)");
         db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values (2, 2017, 3, 1, 11, 2, 7340, 73)");
         db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values(3, 2017, 3, 1, 11, 3, 581, 55)");
-        //db.execSQL("insert into relever(idR, numA, idS, numM, numJ, idC, qteEntreer, qteSortir) values(4, 2017, 3, 1, 10, 3, 0, 0)");
 
     }
 
